@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { yellow } from '@material-ui/core/colors';
 
 //adding theming to appbar
 const testTheme = createMuiTheme({   
@@ -16,7 +17,8 @@ const testTheme = createMuiTheme({
     }   
   },   
   palette: {     
-    type: "dark"   
+    type: "dark",
+    secondary: yellow,
   }, 
   typography: {
     fontFamily: 'Indie Flower'
@@ -30,7 +32,7 @@ function App() {
     <ThemeProvider theme={testTheme}>
       <BrowserRouter>
         <Route path="/" render={(history) => (
-          <AppBar>
+          <AppBar position='relative'>
             <Tabs 
             centered 
             value={history.location.pathname !== "/" ? history.location.pathname : false}
